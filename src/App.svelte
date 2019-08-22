@@ -1,21 +1,58 @@
 <script>
-    export let name;
+    import Hello from './components/Hello.svelte';
+
+    let path = window.location.pathname;
 </script>
 
+{#if path === '/asdf'}
+    <div>REEEEEE</div>
+{:else}
+    <Hello intro />
+{/if}
+
 <style>
-    div {
-        display: flex;
-        flex: 1 1 auto;
-        height: 500px;
-        align-items: center;
-        justify-content: center;
-        background-color: purple;
-        color: white;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 22px;
+    /* Eric Meyer's CSS Reset */
+    :global(html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video) {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    :global(article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section) {
+        display: block;
+    }
+    :global(body) {
+        line-height: 1;
+    }
+    :global(ol, ul) {
+        list-style: none;
+    }
+    :global(blockquote, q) {
+        quotes: none;
+    }
+    :global(blockquote:before, blockquote:after,
+    q:before, q:after) {
+        content: '';
+        content: none;
+    }
+    :global(table) {
+        border-collapse: collapse;
+        border-spacing: 0;
     }
 </style>
-
-<div>
-    {name} REEEEEEEEEEEEEEEEEEEEE
-</div>

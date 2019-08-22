@@ -1,0 +1,32 @@
+compiles down to vanilla js/html/css - no loading frameworks
+
+state updates are handled by $: <var> = <assignment>
+i.e.: $: statefulVar = dependentVar * 5
+
+prop declarations are defined by export let <name> = <default props>
+i.e.: `export let prop1 = 'hello'`
+
+no JSX:
+Some logic added to html instead, i.e.:
+{#if x > 10}
+	<p>{x} is greater than 10</p>
+{:else if 5 > x}
+	<p>{x} is less than 5</p>
+{:else}
+	<p>{x} is between 5 and 10</p>
+{/if}
+
+{#each cats as cat, i}
+	<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">
+		{i + 1}: {cat.name}
+	</a></li>
+{/each}
+
+Even has await directly in markup!
+{#await promise}
+	<p>...waiting</p>
+{:then number}
+	<p>The number is {number}</p>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
